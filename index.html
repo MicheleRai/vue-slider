@@ -17,7 +17,7 @@
 				<div class="slider-viewer">
 					<div v-for="(obj, index) in arrImages">
 						<div class="slider-img" :class="index === activeIndex ? 'active' : ''">
-							<img src="img/{{image}}" alt="">
+							<img :src="img/{{image}}" alt="">
 							<div class="slider-text">
 								<h2>{{title}}</h2>
 								<h4>{{text}}</h4>
