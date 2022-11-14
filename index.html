@@ -11,23 +11,33 @@
 	<script src="js/script.js" defer></script>
 </head>
 <body>
-	<div class="container-blur">
-		<div class="slider">
-			<div class="slider-viewer">
-
-			</div>
-
-			<div class="thumbs">
-				<div class="controls">
-					<div class="btn-left">&lt;</div>
-					<div class="btn-right">&gt;</div>
+	<div id="root">
+		<div class="container-blur">
+			<div class="slider">
+				<div class="slider-viewer">
+					<div v-for="(obj, index) in arrImages">
+						<div class="slider-img" :class="index === activeIndex ? 'active' : ''">
+							<img src="img/{{image}}" alt="">
+							<div class="slider-text">
+								<h2>{{title}}</h2>
+								<h4>{{text}}</h4>
+							</div>
+						</div>
+					</div>
 				</div>
+
+				<!-- <div class="thumbs">
+					<div class="controls">
+						<div class="btn-left">&lt;</div>
+						<div class="btn-right">&gt;</div>
+					</div>
+				</div>
+				<dic class="btn-container">
+					<button class="command btn-invert">Invert <i class="fa-solid fa-backward"></i></button>
+					<button class="command btn-stop">Stop <i class="fa-solid fa-pause"></i></button>
+					<button class="command btn-start">Start <i class="fa-solid fa-forward"></i></button>
+				</dic> -->
 			</div>
-			<dic class="btn-container">
-				<button class="command btn-invert">Invert <i class="fa-solid fa-backward"></i></button>
-				<button class="command btn-stop">Stop <i class="fa-solid fa-pause"></i></button>
-				<button class="command btn-start">Start <i class="fa-solid fa-forward"></i></button>
-			</dic>
 		</div>
 	</div>
 </body>

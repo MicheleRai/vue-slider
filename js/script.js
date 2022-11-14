@@ -5,7 +5,7 @@ Bonus:
 3- quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
 */
 const app = new Vue({
-        el: 'container-blur',
+        el: '#root',
         data: {
                 arrImages : [
                         {
@@ -34,16 +34,16 @@ const app = new Vue({
                                 text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
                         },
                 ],
-                eleSliderViewer : document.querySelector('.slider-viewer'),
-                eleSliderThumbs : document.querySelector('.thumbs'),
-                eleBtnLeft : document.querySelector('.btn-left'),
-                eleBtnRight : document.querySelector('.btn-right'),
-                blurImg : document.querySelector('.container-blur'),
-                eleBtnStart : document.querySelector('.btn-start'),
-                eleBtnStop : document.querySelector('.btn-stop'),
-                eleBtninvert : document.querySelector('.btn-invert'),
-                listEleImg : document.querySelectorAll('.slider-img'),
-                listThumbs : document.querySelectorAll('.thumb-img'),
+                // eleSliderViewer : document.querySelector('.slider-viewer'),
+                // eleSliderThumbs : document.querySelector('.thumbs'),
+                // eleBtnLeft : document.querySelector('.btn-left'),
+                // eleBtnRight : document.querySelector('.btn-right'),
+                // blurImg : document.querySelector('.container-blur'),
+                // eleBtnStart : document.querySelector('.btn-start'),
+                // eleBtnStop : document.querySelector('.btn-stop'),
+                // eleBtninvert : document.querySelector('.btn-invert'),
+                // listEleImg : document.querySelectorAll('.slider-img'),
+                // listThumbs : document.querySelectorAll('.thumb-img'),
                 activeIndex : 0,
                 idInterval : 0,
                 i : 0,
@@ -51,8 +51,8 @@ const app = new Vue({
         methods: {
                 rightFunction () {
                         // togliere la classe active dall'elemento attivo corrente
-                        listEleImg[activeIndex].classList.remove('active');
-                        listThumbs[activeIndex].classList.remove('active');
+                        //listEleImg[activeIndex].classList.remove('active');
+                        //listThumbs[activeIndex].classList.remove('active');
                 
                         // incrementare l'active index con reset per slider infinito
                         activeIndex++;
@@ -61,15 +61,15 @@ const app = new Vue({
                         }
                 
                         // aggiungere la classe active all'elemento successivo
-                        listEleImg[activeIndex].classList.add('active');
-                        listThumbs[activeIndex].classList.add('active');
+                        //listEleImg[activeIndex].classList.add('active');
+                         //listThumbs[activeIndex].classList.add('active');
                         document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
                         document.body.style.backgroundSize = 'cover';
                 },
                 leftFunction() {
                         // togliere la classe active dall'elemento attivo corrente
-                        listEleImg[activeIndex].classList.remove('active');
-                        listThumbs[activeIndex].classList.remove('active');
+                        //listEleImg[activeIndex].classList.remove('active');
+                        //listThumbs[activeIndex].classList.remove('active');
                 
                         // decrementare l'active index con reset per slider infinito
                         if (activeIndex === 0) {
