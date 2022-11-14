@@ -15,17 +15,17 @@
 		<div class="container-blur">
 			<div class="slider">
 				<div class="slider-viewer">
-					<div v-for="(obj, index) in arrImages">
+					<div v-for="(obj, index) in arrImages" :key="obj.image">
 						<div class="slider-img" :class="index === activeIndex ? 'active' : ''">
-							<img :src="img/{{image}}" alt="">
+							<img :src="img/ + obj.image" alt="">
 							<div class="slider-text">
-								<h2>{{title}}</h2>
-								<h4>{{text}}</h4>
+								<h2>{{obj.title}}</h2>
+								<h4>{{obj.text}}</h4>
 							</div>
 						</div>
 					</div>
 				</div>
-
+				<button @click="activeIndex++">Incrementa</button>
 				<!-- <div class="thumbs">
 					<div class="controls">
 						<div class="btn-left">&lt;</div>
