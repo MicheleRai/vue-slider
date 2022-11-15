@@ -15,28 +15,33 @@
 		<div class="container-blur">
 			<div class="slider">
 				<div class="slider-viewer">
-					<div v-for="(obj, index) in arrImages" :key="obj.image">
-						<div class="slider-img" :class="index === activeIndex ? 'active' : ''">
-							<img :src="img/ + obj.image" alt="">
-							<div class="slider-text">
-								<h2>{{obj.title}}</h2>
-								<h4>{{obj.text}}</h4>
-							</div>
+					<div v-for="(obj, i) in arrImages" :key="arrImages.image" class="slider-img" :class="i === activeIndex ? 'active' : ''">
+						<img :src="'img/' + obj.image" alt="">
+						<div class="slider-text">
+							<h2>{{obj.title}}</h2>
+							<h4>{{obj.text}}</h4>
 						</div>
 					</div>
-				</div>
-				<button @click="activeIndex++">Incrementa</button>
-				<!-- <div class="thumbs">
 					<div class="controls">
-						<div class="btn-left">&lt;</div>
-						<div class="btn-right">&gt;</div>
+						<button class="btn-left" @click="changeSlide(-1)">&lt;</button>
+						<button class="btn-right" @click="changeSlide(1)">&gt;</button>
 					</div>
 				</div>
-				<dic class="btn-container">
-					<button class="command btn-invert">Invert <i class="fa-solid fa-backward"></i></button>
-					<button class="command btn-stop">Stop <i class="fa-solid fa-pause"></i></button>
-					<button class="command btn-start">Start <i class="fa-solid fa-forward"></i></button>
-				</dic> -->
+				
+				<div class="thumbs">
+					<img 
+					v-for="(obj,i) in arrImages" 
+					:src="'img/' + obj.image" 
+					class="thumb-img" 
+					:class="{active: i === activeIndex}"
+					@click="activeIndex = i"
+					>
+				</div>
+				 <div class="btn-container">
+					<button class="command btn-invert" @click="invertAutoPlay">Invert <i class="fa-solid fa-backward"></i></button>
+					<button class="command btn-stop" @click="stopAutoPlay">Stop <i class="fa-solid fa-pause"></i></button>
+					<button class="command btn-start" @click="startAutoPlay">Start <i class="fa-solid fa-forward"></i></button>
+				</div>
 			</div>
 		</div>
 	</div>
