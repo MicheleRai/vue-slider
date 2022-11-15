@@ -55,16 +55,23 @@ const app = new Vue({
                        }
                 },
                 startAutoPlay(){
+                        clearInterval(this.idInterval);
                         this.idInterval = setInterval(() => this.changeSlide(this.direction), this.timeSlider);
-                        this.isAutoplayActive = true;
                 },
                 stopAutoPlay(){
-                        clearInterval(this.idInterval)
-                        this.isAutoplayActive = false;
+                        clearInterval(this.idInterval);
                 },
                 invertAutoPlay(){
-                        this.direction *= -1
+                        clearInterval(this.idInterval)
+                        this.direction *= -1;
+                        this.idInterval = setInterval(() => this.changeSlide(this.direction), this.timeSlider);
                 },
+                pauseAutoPlay(){
+                        this.stopAutoPlay();
+                },
+                resumeAutoPlay(){
+                        this.startAutoPlay();
+                }
         },
         mounted(){
                 this.startAutoPlay();

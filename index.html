@@ -14,7 +14,7 @@
 	<div id="root">
 		<div class="container-blur">
 			<div class="slider">
-				<div class="slider-viewer">
+				<div class="slider-viewer" @mouseenter="pauseAutoPlay" @mouseleave="resumeAutoPlay">
 					<div v-for="(obj, i) in arrImages" :key="arrImages.image" class="slider-img" :class="i === activeIndex ? 'active' : ''">
 						<img :src="'img/' + obj.image" alt="">
 						<div class="slider-text">
