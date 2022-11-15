@@ -55,7 +55,7 @@ const app = new Vue({
                        }
                 },
                 startAutoPlay(){
-                        thisidInterval = setInterval(() => this.changeSlide(this.direction), this.timeSlider);
+                        this.idInterval = setInterval(() => this.changeSlide(this.direction), this.timeSlider);
                         this.isAutoplayActive = true;
                 },
                 stopAutoPlay(){
